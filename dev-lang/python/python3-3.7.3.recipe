@@ -50,6 +50,8 @@ PROVIDES="
 	cmd:python3.7m_config = $portVersion compat >= 3.7
 	cmd:pyvenv = $portVersion compat >= 3.7
 	cmd:pyvenv_3.7 = $portVersion compat >= 3.7
+        cmd:pip3 = $portVersion compat >= 3.7
+        cmd:pip3.7 = $portVersion compat >= 3.7
 	devel:libpython3.7m$secondaryArchSuffix = 1.0
 	lib:libpython3.7m$secondaryArchSuffix = 1.0
 	"
@@ -104,7 +106,7 @@ BUILD()
 	autoconf
 	export OPT=""
 	runConfigure --omit-dirs binDir,includeDir ./configure \
-		--enable-shared --without-ensurepip --with-system-ffi \
+		--enable-shared --with-ensurepip --with-system-ffi \
 		--with-system-expat --bindir=$commandBinDir --includedir=$developDir/headers
 
 	# prevent make from rebuilding stuff that requires python
